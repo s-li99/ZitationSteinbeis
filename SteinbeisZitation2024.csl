@@ -74,38 +74,38 @@
         <!-- Standardzitierweise: Vgl. Autor, Jahr, S. -->
         <else>
           <text value="Vgl. "/>
-           <!-- Fallback auf Editor bzw. shortTitle (Instituion), falls kein Autor  -->
+          <!-- Fallback auf Editor bzw. shortTitle (Instituion), falls kein Autor -->
           <group>
-  <choose>
-    <if variable="author">
-      <names variable="author" delimiter=", ">
-        <name initialize-with=". " name-as-sort-order="first"/>
-      </names>
-    </if>
-    <else-if variable="editor">
-      <names variable="editor" delimiter=", ">
-        <name initialize-with=". " name-as-sort-order="first"/>
-      </names>
-    </else-if>
-    <else-if variable="title-short">
-      <text variable="title-short"/>
-    </else-if>
-    <else>
-      <text value="o. V." suffix=" "/>
-    </else>
-  </choose>
-</group>
+            <choose>
+              <if variable="author">
+                <names variable="author" delimiter=", ">
+                  <name initialize-with=". " name-as-sort-order="first"/>
+                </names>
+              </if>
+              <else-if variable="editor">
+                <names variable="editor" delimiter=", ">
+                  <name initialize-with=". " name-as-sort-order="first"/>
+                </names>
+              </else-if>
+              <else-if variable="title-short">
+                <text variable="title-short"/>
+              </else-if>
+              <else>
+                <text value="o. V." suffix=" "/>
+              </else>
+            </choose>
+          </group>
           <text value=", "/>
           <choose>
-  <if variable="issued">
-    <date variable="issued">
-      <date-part name="year"/>
-    </date>
-  </if>
-  <else>
-    <text term="no date" prefix="(" suffix=")"/>
-  </else>
-</choose>
+            <if variable="issued">
+              <date variable="issued">
+                <date-part name="year"/>
+              </date>
+            </if>
+            <else>
+              <text term="no date" prefix="(" suffix=")"/>
+            </else>
+          </choose>
           <!-- Nur wenn Seitenzahl vorhanden -->
           <choose>
             <if variable="page">
