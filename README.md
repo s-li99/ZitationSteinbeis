@@ -23,7 +23,7 @@ CSL-Stil für Steinbeis Hochschule
     - manuscript: Interne/unveröffentlichte Quellen
     - speech: Präsentation (da typ presentation in Zotero ungültig)
 
-##  (⚠️) Im Literaturverzeichnis beachten
+##  ⚠️ Im Literaturverzeichnis beachten
   - Bei Problemen bitte Quellentyp in Zotero prüfen und ggf. anpassen, oder cases erweitern
   - If (URL) Case: bei book, chapter, article-journal, article-newspaper verfügbar
         → falls URL nicht erwünscht:
