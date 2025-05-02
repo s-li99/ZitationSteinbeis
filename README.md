@@ -25,7 +25,7 @@ CSL-Stil für Steinbeis Hochschule
 
 ##  ⚠️ Im Literaturverzeichnis beachten
   - Bei Problemen bitte Quellentyp in Zotero prüfen und ggf. anpassen, oder cases erweitern
-  - If (URL) Case: bei book, chapter, article-journal, article-newspaper verfügbar
+  - `if (URL)` Case: bei book, chapter, article-journal, article-newspaper verfügbar
         → falls URL nicht erwünscht:
-            - jeweiligen <choose> Block entfernen oder,
-            - Hinterlegte URL in Zotero entfernen und ggf. als Notiz ablegen
+            - jeweiligen `<choose>` Block entfernen oder,
+            - Hinterlegte URL in Zotero entfernen und ggf. als Notiz ablegen falls weiter benötigt
