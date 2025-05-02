@@ -8,7 +8,7 @@ CSL-Stil für Steinbeis Hochschule
   - Literaturverzeichnis nach APA (modifiziert)
 
 
-##  🔧 Hinweise (===! WICHTTIG !===):
+##  🔧 Hinweise ! WICHTTIG:
   - Funktioniert mit Zotero 6+ und Juris-M
   - ! Keine Ausgabe der 1. Auflage laut SBA
       → Edition-Feld muss leer bleiben!
