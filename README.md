@@ -5,7 +5,7 @@ CSL-Stil für Steinbeis Hochschule
 ##  Stilbeschreibung:
   - Fußnoten im deutschen Stil mit „Vgl.“ und Initialen
     →  bei direktem Zitat „Vgl.“ entfernen!
-  - Literaturverzeichnis nach APA (modifiziert)
+  - Literaturverzeichnis nach APA (modifiziert nach Angaben in: Anforderungen an Abschlussarbeiten und sonstige wissenschaftliche Forschungsarbeiten für Studierende an der Steinbeis Hochschule Stand: 2024)
 
 
 ##  🔧 Hinweise ! WICHTTIG:
