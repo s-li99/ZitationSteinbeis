@@ -22,6 +22,9 @@ CSL-Stil für Steinbeis Hochschule
     - webpage: Internetquellen
     - manuscript: Interne/unveröffentlichte Quellen
     - speech: Präsentation (da typ presentation in Zotero ungültig)
+    - thesis: Dissertation
+    - report: Bericht
+    - paper-conference: Konferenz Paper
 
 ##  ⚠️ Im Literaturverzeichnis beachten
   - Bei Problemen bitte Quellentyp in Zotero prüfen und ggf. anpassen, oder cases erweitern
