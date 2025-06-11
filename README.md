@@ -14,6 +14,7 @@ CSL-Stil für Steinbeis Hochschule
       → Edition-Feld muss leer bleiben!
   - Bei Webseiten Institutionen als Author nicht möglich in Zotero Einstellung
     → Fallback auf short-title für Instituionsnamen
+  - ! Aufpassen bei ebd., keine Seitenunterscheidung in Zotero möglich. Daher konnt ebd. auch auf der nächsten Seite, bei selber Quelle!
   - Unterstützt folgende Typen:
     - book: Buch und Sammelband (Unterscheidung via if editor)
     - chapter: Einzelkapitel
