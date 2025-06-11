@@ -1,6 +1,6 @@
 # ZitationSteinbeis
 CSL-Stil für Steinbeis Hochschule
-  Version: 1.0 | Erstellt: 2025-04-17 | Autor: sli
+  Version: 1.1 | Erstellt: 2025-04-17 | Autor: sli
 
 ##  Stilbeschreibung:
   - Fußnoten im deutschen Stil mit „Vgl.“ und Initialen
