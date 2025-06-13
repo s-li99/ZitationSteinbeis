@@ -273,6 +273,12 @@
             <text variable="issue" prefix="(" suffix=")"/>
             <text variable="page"/>
           </group>
+          <choose>
+            <if match="any" variable="DOI">
+              <text value=" DOI: " prefix=" " suffix=""/>
+              <text variable="DOI" prefix="https://doi.org/"/>
+            </if>
+          </choose>
         </else-if>
 
         <!-- === ZEITUNGSARTIKEL === -->
@@ -358,32 +364,38 @@
         </else-if>
 
         <!-- === THESIS === -->
-<else-if type="thesis">
-  <date variable="issued" prefix=" (" suffix=").">
-    <date-part name="year"/>
-  </date>
-  <text variable="title" prefix=" " suffix="." font-style="italic"/>
-  <text value="Unveröffentlichte Abschlussarbeit." prefix=" "/>
-</else-if>
-
-       <!-- === REPORT === -->
-<else-if type="report">
-  <date variable="issued" prefix=" (" suffix=").">
-    <date-part name="year"/>
-  </date>
-  <text variable="title" prefix=" " suffix="." font-style="italic"/>
-  <text variable="publisher" prefix=" " suffix="."/>
-</else-if>
+        <else-if type="thesis">
+          <date variable="issued" prefix=" (" suffix=").">
+            <date-part name="year"/>
+          </date>
+          <text variable="title" prefix=" " suffix="." font-style="italic"/>
+          <text value="Unveröffentlichte Abschlussarbeit." prefix=" "/>
+        </else-if>
+        
+        <!-- === REPORT === -->
+        <else-if type="report">
+          <date variable="issued" prefix=" (" suffix=").">
+            <date-part name="year"/>
+          </date>
+          <text variable="title" prefix=" " suffix="." font-style="italic"/>
+          <text variable="publisher" prefix=" " suffix="."/>
+        </else-if>
 
         <!-- === PAPER CONFERANCE === -->
-<else-if type="paper-conference">
-  <date variable="issued" prefix=" (" suffix=").">
-    <date-part name="year"/>
-  </date>
-  <text variable="title" prefix=" " suffix="." font-style="italic"/>
-  <text variable="container-title" prefix=" In: " suffix="."/>
-  <text variable="publisher" prefix=" " suffix="."/>
-</else-if>
+        <else-if type="paper-conference">
+          <date variable="issued" prefix=" (" suffix=").">
+            <date-part name="year"/>
+          </date>
+          <text variable="title" prefix=" " suffix="." font-style="italic"/>
+          <text variable="container-title" prefix=" In: " suffix="."/>
+          <text variable="publisher" prefix=" " suffix="."/>
+          <choose>
+            <if match="any" variable="DOI">
+              <text value=" DOI: " prefix=" " suffix=""/>
+              <text variable="DOI" prefix="https://doi.org/"/>
+            </if>
+          </choose>
+        </else-if>
 
 
 
