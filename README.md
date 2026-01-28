@@ -26,6 +26,7 @@ CSL-Stil für Steinbeis Hochschule
     - thesis: Dissertation
     - report: Bericht
     - paper-conference: Konferenz Paper
+    - document: Dokument
 
 ##  ⚠️ Im Literaturverzeichnis beachten
   - Bei Problemen bitte Quellentyp in Zotero prüfen und ggf. anpassen, oder cases erweitern

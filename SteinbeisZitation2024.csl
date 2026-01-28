@@ -31,104 +31,104 @@
   (⚠️) Im Literaturverzeichnis beachten
     - Bei Problemen bitte Quellentyp in Zotero prüfen und ggf. anpassen, oder cases erweitern
 -->
-  <!-- === STIL-METADATEN === -->
-  <info>
-    <title>Steinbeis - Fußnoten + APA Literaturverzeichnis</title>
-    <id>http://www.zitierstil.de/styles/fussnote-apa-steinbeis-initialen</id>
-    <link href="..." rel="self"/>
-    <author>
-      <name>sli</name>
-    </author>
-    <category citation-format="note"/>
-    <summary>Steinbeis-konformer Zitierstil mit Fußnoten und APA-basiertem Literaturverzeichnis</summary>
-    <updated>2025-04-17T14:31:05+00:00</updated>
-  </info>
+<!-- === STIL-METADATEN === -->
+<info>
+  <title>Steinbeis - Fußnoten + APA Literaturverzeichnis - Modified</title>
+  <id>http://www.zitierstil.de/styles/fussnote-apa-steinbeis-initialen</id>
+  <link href="..." rel="self"/>
+  <author>
+    <name>sli, jlt</name>
+  </author>
+  <category citation-format="note"/>
+  <summary>Steinbeis-konformer Zitierstil mit Fußnoten und APA-basiertem Literaturverzeichnis</summary>
+  <updated>2026-01-17T17:46:05+00:00</updated>
+</info>
 
-  <!-- === SPRACHLOKALE BEGRIFFE (DE) === -->
-  <locale xml:lang="de">
-    <terms>
-      <term name="et-al">et al.</term>
-      <term name="no date">o. J.</term>
-      <term name="anonymous">o. V.</term>
-      <term name="editor" form="short">Hrsg.</term>
-    </terms>
-  </locale>
+<!-- === SPRACHLOKALE BEGRIFFE (DE) === -->
+<locale xml:lang="de">
+  <terms>
+    <term name="et-al">et al.</term>
+    <term name="no date">o. J.</term>
+    <term name="anonymous">o. V.</term>
+    <term name="editor" form="short">Hrsg.</term>
+  </terms>
+</locale>
 
-  <!-- === FUßNOTENFORMAT === -->
-  <citation et-al-min="2" et-al-use-first="1" disambiguate-add-names="true">
-    <layout suffix=".">
-      <choose>
-        <!-- ebd. mit Seitenzahl -->
-        <if position="ibid-with-locator">
-          <text value="Vgl. ebd., S. "/>
-          <text variable="locator"/>
-        </if>
+<!-- === FUßNOTENFORMAT === -->
+<citation et-al-min="2" et-al-use-first="1" disambiguate-add-names="true">
+  <layout suffix=".">
+    <choose>
+      <!-- ebd. mit Seitenzahl -->
+      <if position="ibid-with-locator">
+        <text value="Vgl. ebd., S. "/>
+        <text variable="locator"/>
+      </if>
 
-        <!-- ebd. ohne Seitenzahl -->
-        <else-if position="ibid">
-          <text value="Vgl. ebd."/>
-        </else-if>
+      <!-- ebd. ohne Seitenzahl -->
+      <else-if position="ibid">
+        <text value="Vgl. ebd."/>
+      </else-if>
 
-        <!-- Standardzitierweise: Vgl. Autor, Jahr, S. -->
-        <else>
-          <text value="Vgl. "/>
-          <!-- Fallback auf Editor bzw. shortTitle (Instituion), falls kein Autor -->
-          <group>
-            <choose>
-              <if variable="author">
-                <names variable="author" delimiter=", ">
-                  <name initialize-with=". " name-as-sort-order="first"/>
-                </names>
-              </if>
-              <else-if variable="editor">
-                <names variable="editor" delimiter=", ">
-                  <name initialize-with=". " name-as-sort-order="first"/>
-                </names>
-              </else-if>
-              <else-if variable="title-short">
-                <text variable="title-short"/>
-              </else-if>
-              <else>
-                <text value="o. V." suffix=" "/>
-              </else>
-            </choose>
-          </group>
-          <text value=", "/>
+      <!-- Standardzitierweise: Vgl. Autor, Jahr, S. -->
+      <else>
+        <text value="Vgl. "/>
+        <!-- Fallback auf Editor bzw. shortTitle (Instituion), falls kein Autor -->
+        <group>
           <choose>
-            <if variable="issued">
-              <date variable="issued" prefix="(" suffix=")">
-                <date-part name="year"/>
-              </date>
+            <if variable="author">
+              <names variable="author" delimiter=", ">
+                <name initialize-with=". " name-as-sort-order="first"/>
+              </names>
             </if>
+            <else-if variable="editor">
+              <names variable="editor" delimiter=", ">
+                <name initialize-with=". " name-as-sort-order="first"/>
+              </names>
+            </else-if>
+            <else-if variable="title-short">
+              <text variable="title-short"/>
+            </else-if>
             <else>
-              <text term="no date" prefix="(" suffix=")"/>
+              <text value="o. V." suffix=" "/>
             </else>
           </choose>
-          <!-- Nur wenn Seitenzahl vorhanden -->
-          <choose>
-            <if variable="page">
-              <text value=", S. "/>
-              <text variable="page"/>
-            </if>
-          </choose>
-        </else>
-      </choose>
-    </layout>
-  </citation>
+        </group>
+        <text value=", "/>
+        <choose>
+          <if variable="issued">
+            <date variable="issued" prefix="(" suffix=")">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else>
+            <text term="no date" prefix="(" suffix=")"/>
+          </else>
+        </choose>
+        <!-- Nur wenn Seitenzahl vorhanden -->
+        <choose>
+          <if variable="page">
+            <text value=": S. "/>
+            <text variable="page"/>
+          </if>
+        </choose>
+      </else>
+    </choose>
+  </layout>
+</citation>
 
-  <!-- === LITERATURVERZEICHNIS === -->
-  <bibliography hanging-indent="true" line-spacing="2">
+<!-- === LITERATURVERZEICHNIS === -->
+<bibliography hanging-indent="true" line-spacing="2">
 
-    <!-- Sortierreihenfolge -->
-    <sort>
-      <key variable="author"/>
-      <key variable="issued"/>
-      <key variable="title"/>
-    </sort>
+<!-- Sortierreihenfolge -->
+<sort>
+  <key variable="author"/>
+  <key variable="issued"/>
+  <key variable="title"/>
+</sort>
 
-    <layout suffix=".">
-      <!-- Namensformatierung im Literaturverzeichnis -->
-      <names variable="author" delimiter=", ">
+<layout suffix=".">
+<!-- Namensformatierung im Literaturverzeichnis -->
+<names variable="author" delimiter=", " font-style="italic">
   <name et-al-min="7" et-al-use-first="6" initialize-with=". " name-as-sort-order="all"/>
   <substitute>
     <choose>
@@ -145,312 +145,371 @@
   </substitute>
 </names>
 
-      <!-- Auswahl des Quellentyps -->
+<!-- Auswahl des Quellentyps -->
+<choose>
+
+<!-- === MONOGRAFIE oder BUCH === -->
+  <if type="book">
+    <choose>
+      <!-- Buch mit Autor -->
+      <if variable="author">
+        <choose>
+          <if variable="issued">
+            <date variable="issued" prefix=" (" suffix="):">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else>
+            <text term="no date" prefix=" (" suffix="):"/>
+          </else>
+        </choose>
+      <!-- Titel + Untertitel -->
+        <group prefix=" " suffix="," >
+          <text variable="title"/>
+        </group>
+      <!-- Ort + Verlag -->
+        <choose>
+          <if variable="edition">
+            <text variable="edition" prefix=" " suffix=". Aufl.," />
+          </if>
+        </choose>
+        <group>
+          <text variable="publisher-place" prefix=" " suffix=": "/>
+          <text variable="publisher" suffix="."/>
+        </group>
+      <!-- Falls Online -->
+        <choose>
+          <if match="any" variable="URL">
+            <group prefix=" verfügbar unter: " suffix=",">
+              <text variable="URL"/>
+            </group>
+            <date variable="accessed" prefix=" Zugriff am: " suffix=".">
+              <date-part name="day" suffix="."/>
+                <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+              <date-part name="year"/>
+            </date>
+          </if>
+        </choose>
+      </if>
+
+      <!-- Buch als Sammelband mit Herausgeber -->
+      <else-if variable="editor">
+        <names variable="editor" delimiter="," font-style="italic">
+          <name delimiter="," prefix=" " et-al-min="7" et-al-use-first="6" initialize-with=". " name-as-sort-order="all"/>
+          <substitute>
+            <text term="anonymous"/>
+          </substitute>
+        </names>
+        <text value=" (Hrsg.),"/>
+        <choose>
+          <if variable="issued">
+            <date variable="issued" prefix=" (" suffix="):">
+              <date-part name="year"/>
+            </date>
+          </if>
+          <else>
+            <text term="no date" prefix=" (" suffix="):"/>
+          </else>
+        </choose>
+        <group font-style="normal" prefix=" " suffix=",">
+          <text variable="container-title" />
+        </group>
+        <group>
+          <text variable="publisher-place" prefix=" " suffix=": "/>
+          <text variable="publisher" suffix="."/>
+        </group>
+      </else-if>
+    </choose>
+  </if>
+
+<!-- === BUCHKAPITEL === -->
+  <else-if type="chapter">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix=" (" suffix="):">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" prefix=" (" suffix="):"/>
+      </else>
+    </choose>
+    <group prefix=" " suffix=",">
+      <text variable="title"/>
+    </group>
+    <group prefix=" In: ">
+      <names variable="editor" delimiter=", " font-style="italic">
+        <name initialize-with="."/>
+      </names>
+      <text value=" (Hrsg.), "/>
+      <group prefix=" " suffix="." >
+        <text variable="container-title"/>
+      </group>
+      <group prefix=" (" suffix="), ">
+        <text variable="edition" suffix=", "/>
+        <text variable="page" prefix="S. " />
+      </group>
+    </group>
+    <group>
+      <text variable="publisher-place" suffix=": "/>
+      <text variable="publisher" suffix="."/>
+    </group>
+  </else-if>
+
+<!-- === WISSENSCHAFTLICHER AUFSATZ === -->
+  <else-if type="article-journal">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix=" (" suffix="): ">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" prefix=" (" suffix="): "/>
+      </else>
+    </choose>
+    <group prefix="" suffix=", ">
+      <text variable="title" font-style="normal"/>
+    </group>
+    <text variable="container-title"  suffix=", "/>
+    <text variable="volume"/>
+    <text variable="issue" prefix="(" suffix=")"/>
+    <choose>
+      <if variable="page">
+        <text variable="page" prefix=", "/>
+      </if>
+    </choose>
+    <choose>
+      <if variable="DOI">
+        <group prefix=", " suffix=".">
+          <text value="https://doi.org/"/>
+          <text variable="DOI"/>
+        </group>
+      </if>
+    </choose>
+  </else-if>
+
+
+
+<!-- === ZEITUNGSARTIKEL === -->
+  <else-if type="article-journal">
+    <choose>
+    <if variable="issued">
+      <date variable="issued" prefix=" (" suffix="):">
+        <date-part name="year"/>
+      </date>
+    </if>
+    <else>
+      <text term="no date" prefix=" (" suffix="):"/>
+    </else>
+    </choose>
+    <group font-style="normal" delimiter=": " prefix=" " suffix=", ">
+      <text variable="title"/>
+    </group>
+    <group prefix=" " suffix=",">
+      <text variable="container-title"  suffix=", "/>
+      <text variable="volume" />
       <choose>
-
-        <!-- === MONOGRAFIE oder BUCH === -->
-        <if type="book">
-          <choose>
-            <!-- Buch mit Autor -->
-            <if variable="author">
-              <choose>
-                <if variable="issued">
-                  <date variable="issued" prefix=" (" suffix=").">
-                    <date-part name="year"/>
-                  </date>
-                </if>
-                <else>
-                  <text term="no date" prefix=" (" suffix=")."/>
-                </else>
-              </choose>
-              <!-- Titel + Untertitel -->
-              <group prefix=" " suffix="." font-style="italic">
-                <text variable="title"/>
-              </group>
-              <!-- Ort + Verlag -->
-              <group>
-                <text variable="publisher-place" prefix=" " suffix=": "/>
-                <text variable="publisher" suffix="."/>
-              </group>
-              <!-- Falls Online -->
-              <choose>
-                <if match="any" variable="URL">
-                  <group prefix=" Verfügbar am " suffix=".">
-                    <date variable="accessed">
-                      <date-part name="day" suffix="."/>
-                      <date-part name="month" form="numeric" suffix="."/>
-                      <date-part name="year"/>
-                    </date>
-                    <text value=" unter "/>
-                    <text variable="URL"/>
-                  </group>
-                </if>
-              </choose>
-            </if>
-
-            <!-- Buch als Sammelband mit Herausgeber -->
-            <else-if variable="editor">
-              <names variable="editor" delimiter=",">
-                <name delimiter="," prefix=" " et-al-min="7" et-al-use-first="6" initialize-with=". " name-as-sort-order="all"/>
-                <substitute>
-                  <text term="anonymous"/>
-                </substitute>
-              </names>
-              <text value=" (Hrsg.)."/>
-              <choose>
-                <if variable="issued">
-                  <date variable="issued" prefix=" (" suffix=").">
-                    <date-part name="year"/>
-                  </date>
-                </if>
-                <else>
-                  <text term="no date" prefix=" (" suffix=")."/>
-                </else>
-              </choose>
-              <group font-style="normal" prefix=" " suffix=".">
-                <text variable="container-title" font-style="italic"/>
-              </group>
-              <group>
-                <text variable="publisher-place" prefix=" " suffix=": "/>
-                <text variable="publisher" suffix="."/>
-              </group>
-            </else-if>
-          </choose>
-        </if>
-
-        <!-- === BUCHKAPITEL === -->
-        <else-if type="chapter">
-          <choose>
-            <if variable="issued">
-              <date variable="issued" prefix=" (" suffix=").">
-                <date-part name="year"/>
-              </date>
-            </if>
-            <else>
-              <text term="no date" prefix=" (" suffix=")."/>
-            </else>
-          </choose>
-          <group prefix=" " suffix=".">
-            <text variable="title"/>
-          </group>
-          <group prefix=" In: ">
-            <names variable="editor" delimiter=", ">
-              <name initialize-with="."/>
-            </names>
-            <text value=" (Hrsg.), "/>
-            <group prefix=" " suffix="." font-style="italic">
-              <text variable="container-title"/>
-            </group>
-            <group prefix=" (" suffix="). ">
-              <text variable="edition" suffix=", "/>
-              <text variable="page" prefix="S. " />
-            </group>
-          </group>
+      <!-- Wenn Ausgabe vorhanden ist -->
+        <if variable="issue" match="none">
           <group>
-            <text variable="publisher-place" suffix=": "/>
-            <text variable="publisher" suffix="."/>
-          </group>
-        </else-if>
-
-        <!-- === WISSENSCHAFTLICHER AUFSATZ === -->
-		<else-if type="article-journal">
-		  <choose>
-			<if variable="issued">
-			  <date variable="issued" prefix=" (" suffix="). ">
-				<date-part name="year"/>
-			  </date>
-			</if>
-			<else>
-			  <text term="no date" prefix=" (" suffix="). "/>
-			</else>
-		  </choose>
-		  <group prefix="" suffix=". ">
-			<text variable="title" font-style="normal"/>
-		  </group>
-		  <text variable="container-title" font-style="italic" suffix=", "/>
-		  <text variable="volume"/>
-		  <text variable="issue" prefix="(" suffix="), "/>
-		  <text variable="page"/>
-		  <choose>
-			<if variable="DOI">
-			  <group prefix=". " suffix=".">
-				<text value="https://doi.org/"/>
-				<text variable="DOI"/>
-			  </group>
-			</if>
-		  </choose>
-		</else-if>
-
-
-
-        <!-- === ZEITUNGSARTIKEL === -->
-		<else-if type="article-journal">
-		  <choose>
-			<if variable="issued">
-			  <date variable="issued" prefix=" (" suffix=").">
-				<date-part name="year"/>
-			  </date>
-			</if>
-			<else>
-			  <text term="no date" prefix=" (" suffix=")."/>
-			</else>
-		  </choose>
-		  <group font-style="normal" delimiter=": " prefix=" " suffix=". ">
-			<text variable="title"/>
-		  </group>
-		  <group prefix=" " suffix=".">
-			<text variable="container-title" font-style="italic" suffix=", "/>
-			<text variable="volume" font-style="italic"/>
-			<choose>
-			<!-- Wenn Ausgabe vorhanden ist -->
-			  <if variable="issue" match="none">
-				<group>
-				  <text variable="issue" font-style="italic" prefix="(" suffix=")"/>
-				  <text value=", "/>
-				  <text variable="page"/>
-				</group>
-			  </if>
-
-			  <!-- Wenn Ausgabe NICHT vorhanden ist -->
-			  <else>
-				<group>
-				  <text value=", "/>
-				  <text variable="page"/>
-				</group>
-			  </else>
-			</choose>
-		  </group>
-		</else-if>
-
-        <!-- === WEBSEITE === -->
-		<else-if type="webpage">
-		  <choose>
-			<if variable="issued">
-			  <date variable="issued" prefix=" (" suffix=").">
-				<date-part name="year"/>
-			  </date>
-			</if>
-			<else>
-			  <text term="no date" prefix=" (" suffix=")."/>
-			</else>
-		  </choose>
-		  <text variable="title" prefix=" " suffix="" font-style="italic"/>
-		  <choose>
-			<if variable="URL">
-			  <group prefix=" Verfügbar unter: " suffix=".">
-				<text variable="URL"/>
-			  </group>
-			</if>
-		  </choose>
-		</else-if>
-
-
-        <!-- === UNVERÖFFENTLICHTE QUELLE === -->
-		<else-if type="manuscript">
-		  <date variable="issued" prefix=" (" suffix=").">
-			<date-part name="year"/>
-		  </date>
-		  <text variable="title" font-style="italic" prefix=" " suffix="."/>
-		  <group prefix=" " suffix=".">
-			<text value="Unveröffentlichtes Manuskript"/>
-		  </group>
-		  <text variable="publisher" suffix="."/>
-		  <choose>
-			<if variable="URL">
-			  <group prefix=" Verfügbar unter: " suffix=".">
-				<text variable="URL"/>
-			  </group>
-			</if>
-		  </choose>
-		</else-if>
-
-
-        <!-- === PRÄSENTATION  hier speech, da typ presentation=== -->
-        <else-if type="speech">
-          <date variable="issued" prefix=" (" suffix=").">
-            <date-part name="year"/>
-          </date>
-          <group suffix=".">
-            <group delimiter=". " font-style="italic">
-              <text variable="title"/>
-            </group>
-            <text value="[PowerPoint-Präsentation]"/>
+            <text variable="issue"  prefix="(" suffix=")"/>
             <choose>
-              <if match="any" variable="publisher">
-                <text variable="publisher"/>
+              <if variable="page">
+                <text value=", "/>
+                <text variable="page" prefix="S. "/>
               </if>
-              <else>
-                <text value="Unveröffentlichte Präsentation."/>
-              </else>
             </choose>
           </group>
-        </else-if>
+        </if>
 
-        <!-- === THESIS === -->
-		<else-if type="thesis">
-		  <date variable="issued" prefix=" (" suffix=").">
-			<date-part name="year"/>
-		  </date>
-		  <group prefix=" " suffix=". ">
-			<text variable="title" font-style="italic"/>
-		  </group >
-		  <text value="Unveröffentlichte Abschlussarbeit."/>
-		</else-if>
-
-        <!-- === REPORT === -->
-		<else-if type="report">
-		  <date variable="issued" prefix=" (" suffix="). ">
-			<date-part name="year"/>
-		  </date>
-		    <group prefix=" " suffix=". ">
-				<text variable="title" font-style="italic"/>
-			</group>
-	    <!-- Reporttyp aus Genre-Feld -->
-			<text variable="genre" suffix="."/>
-			<group>
-				<text variable="publisher" prefix=" " suffix="."/>
-			</group>
-			<choose>
-			<if variable="URL">
-			  <group prefix=" Verfügbar unter: " suffix=".">
-				<text variable="URL"/>
-			  </group>
-			</if>
-		  </choose>
-		</else-if>
-
-        <!-- === PAPER CONFERENCE === -->
-		<else-if type="paper-conference">
-		  <date variable="issued" prefix=" (" suffix="). ">
-			<date-part name="year"/>
-		  </date>
-		  <text variable="title" font-style="italic" prefix=" " suffix="."/>
-		  <group prefix=" In: " suffix=".">
-			<text variable="container-title" font-style="italic"/>
-		  </group>
-		  <group suffix=".">
-			<text variable="publisher" suffix="."/>
-			<text variable="page" prefix=" S. "/>
-		  </group>
-		  <choose>
-			<if variable="DOI">
-			  <group prefix=" https://doi.org/" suffix=".">
-				<text variable="DOI"/>
-			  </group>
-			</if>
-		  </choose>
-		</else-if>
-
-        <!-- === DEFAULT / UNBEKANNTER TYP === -->
-        <else>
-          <group prefix="⚠️ UNDEFINIERTER TYP: ">
-            <text variable="title" prefix=" " suffix="."/>
-            <text variable="container-title" prefix=" " suffix="."/>
-            <text variable="publisher" prefix=" " suffix="."/>
+        <!-- Wenn Ausgabe NICHT vorhanden ist -->
+        <else-if variable="page">
+          <group>
+            <text value=", "/>
+            <text variable="page" prefix="S. "/>
           </group>
-        </else>
-
+        </else-if>
       </choose>
-    </layout>
-  </bibliography>
+    </group>
+  </else-if>
+
+<!-- === WEBSEITE === -->
+  <else-if type="webpage">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix=" (" suffix="):">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" prefix=" (" suffix="):"/>
+      </else>
+    </choose>
+    <text variable="title" prefix=" " suffix=","/>
+    <choose>
+      <if variable="URL">
+        <group prefix=" verfügbar unter: " suffix=",">
+          <text variable="URL"/>
+        </group>
+        <date variable="accessed" prefix=" Zugriff am: " suffix=".">
+          <date-part name="day" suffix="."/>
+            <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+          <date-part name="year"/>
+        </date>
+      </if>
+    </choose>
+  </else-if>
+
+
+<!-- === UNVERÖFFENTLICHTE QUELLE === -->
+  <else-if type="manuscript">
+    <date variable="issued" prefix=" (" suffix="):">
+      <date-part name="year"/>
+    </date>
+    <text variable="title"  prefix=" " suffix="."/>
+    <group prefix=" " suffix=".">
+      <text value="Unveröffentlichtes Manuskript"/>
+    </group>
+    <text variable="publisher" suffix="."/>
+    <choose>
+      <if variable="URL">
+        <group prefix=" verfügbar unter: " suffix=",">
+          <text variable="URL"/>
+        </group>
+        <date variable="accessed" prefix=" Zugriff am: " suffix=".">
+          <date-part name="day" suffix="."/>
+            <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+          <date-part name="year"/>
+        </date>
+      </if>
+    </choose>
+  </else-if>
+
+
+<!-- === PRÄSENTATION  hier speech, da typ presentation=== -->
+  <else-if type="speech">
+    <date variable="issued" prefix=" (" suffix="):">
+      <date-part name="year"/>
+    </date>
+    <group suffix=".">
+      <group >
+        <text variable="title" suffix=", "/>
+      </group>
+      <text value="[PowerPoint-Präsentation]"/>
+      <choose>
+        <if match="any" variable="publisher">
+          <text variable="publisher"/>
+        </if>
+        <else>
+          <text value="Unveröffentlichte Präsentation"/>
+        </else>
+      </choose>
+    </group>
+  </else-if>
+
+<!-- === THESIS === -->
+  <else-if type="thesis">
+    <date variable="issued" prefix=" (" suffix="):">
+      <date-part name="year"/>
+    </date>
+    <group prefix=" " suffix=", ">
+      <text variable="title" />
+    </group >
+    <text value="Unveröffentlichte Abschlussarbeit."/>
+  </else-if>
+
+<!-- === REPORT === -->
+  <else-if type="report">
+    <date variable="issued" prefix=" (" suffix="): ">
+      <date-part name="year"/>
+    </date>
+    <group prefix=" " suffix=", ">
+      <text variable="title" />
+    </group>
+    <!-- Reporttyp aus Genre-Feld -->
+    <choose>
+      <if variable="genre">
+        <text variable="genre" suffix=","/>
+      </if>
+    </choose>
+      <group>
+        <text variable="publisher" prefix=" " suffix=","/>
+      </group>
+    <choose>
+      <if variable="URL">
+        <group prefix=" verfügbar unter: " suffix=",">
+          <text variable="URL"/>
+        </group>
+        <date variable="accessed" prefix=" Zugriff am: " suffix=".">
+          <date-part name="day" suffix="."/>
+            <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+          <date-part name="year"/>
+        </date>
+      </if>
+    </choose>
+  </else-if>
+
+<!-- === PAPER CONFERENCE === -->
+  <else-if type="paper-conference">
+    <date variable="issued" prefix=" (" suffix="): ">
+      <date-part name="year"/>
+    </date>
+    <text variable="title"  prefix=" " suffix="."/>
+    <group prefix=" In: " suffix=".">
+      <text variable="container-title" />
+    </group>
+    <group suffix=".">
+      <text variable="publisher" suffix="."/>
+      <text variable="page" prefix=" S. "/>
+    </group>
+    <choose>
+      <if variable="DOI">
+        <group prefix=" https://doi.org/" suffix=".">
+          <text variable="DOI"/>
+        </group>
+      </if>
+    </choose>
+  </else-if>
+
+<!-- === DOCUMENT === -->
+  <else-if type="document">
+    <choose>
+      <if variable="issued">
+        <date variable="issued" prefix=" (" suffix="):">
+          <date-part name="year"/>
+        </date>
+      </if>
+      <else>
+        <text term="no date" prefix=" (" suffix="):"/>
+      </else>
+    </choose>
+    <text variable="title" prefix=" " suffix="," />
+    <choose>
+      <if variable="URL">
+        <group prefix=" verfügbar unter: " suffix=",">
+          <text variable="URL"/>
+        </group>
+        <date variable="accessed" prefix=" Zugriff am: " suffix=".">
+          <date-part name="day" suffix="."/>
+            <date-part name="month" form="numeric-leading-zeros" suffix="."/>
+          <date-part name="year"/>
+        </date>
+      </if>
+    </choose>
+  </else-if>
+
+
+<!-- === DEFAULT / UNBEKANNTER TYP === -->
+  <else>
+    <group prefix="⚠️ UNDEFINIERTER TYP: ">
+      <text variable="title" prefix=" " suffix="."/>
+      <text variable="container-title" prefix=" " suffix="."/>
+      <text variable="publisher" prefix=" " suffix="."/>
+    </group>
+  </else>
+
+</choose>
+</layout>
+</bibliography>
 </style>
